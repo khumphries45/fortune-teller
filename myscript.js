@@ -7,6 +7,8 @@ heading.style.color = "#1A64FF";
 
 var placer = document.querySelector("#placement");
 
+var section = document.querySelector('section');
+
 
 
 var body = document.querySelector("body");
@@ -20,25 +22,16 @@ body.appendChild(button1);
 
 button1.onclick = function () {
       console.log("Clicked");
-      var length = allplayers.length;
-      console.log(length);
-      var randnumber = Math.floor((Math.random() * length + 1));
+      var randnumber = Math.floor((Math.random() * allplayers.length));
       console.log(randnumber);
-     for (var i in allplayers) {
-       console.log(allplayers[randnumber]);
-       allplayers.forEach(function (player) {
-         var p = document.createElement('p')
-         p.innerHTML = player.name;
-         var section = document.querySelector("section")
-         section.appendChild(p);
-       })
-     }
-
+      var randplayer = allplayers[randnumber];
+      section.innerHTML = randplayer;
+      document.body.appendChild(section);
 };
 
 
 var allplayers;
-fetch('https://api.myjson.com/bins/10lm2p').then(function (response) {
+fetch('https://api.myjson.com/bins/166hk1').then(function (response) {
   return response.json();
 }).then(function (players) {
   allplayers = players;

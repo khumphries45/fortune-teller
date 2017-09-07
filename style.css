@@ -1,3 +1,7 @@
+html {
+  background-color: #B8B8B8;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -27,4 +31,12 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+section {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: geneva;
 }
