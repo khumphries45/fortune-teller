@@ -20,24 +20,26 @@ body.appendChild(button1);
 
 button1.onclick = function () {
       console.log("Clicked");
+      var length = allplayers.length;
+      console.log(length);
+      var randnumber = Math.floor((Math.random() * length + 1));
+      console.log(randnumber);
+     for (var i in allplayers) {
+       console.log(allplayers[randnumber]);
+       allplayers.forEach(function (player) {
+         var p = document.createElement('p')
+         p.innerHTML = player.name;
+         var section = document.querySelector("section")
+         section.appendChild(p);
+       })
+     }
+
 };
 
 
-var name;
-var team;
-var age;
-var number;
+var allplayers;
 fetch('https://api.myjson.com/bins/10lm2p').then(function (response) {
   return response.json();
-}).then(function (data) {
-  section.innerHTML = data.name;
-  name = data.name;
-  team = data.team;
-  age = data.age;
-  number = data.number;
-  data.name.forEach(function (rbname) {
-    var p = document.createElement('p');
-    p.innerHTML = rbname.number;
-    document.body.appendChild(p);
-  });
+}).then(function (players) {
+  allplayers = players;
 });
